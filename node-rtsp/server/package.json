@@ -1,0 +1,20 @@
+{
+  "name": "rtsp2web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zhoudeyou",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-ws": "^5.0.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "node-media-server": "^2.5.0",
+    "node-rtsp-stream": "^0.0.9",
+    "rtsp-live555": "^1.8.7",
+    "websocket-stream": "^5.5.2"
+  }
+}

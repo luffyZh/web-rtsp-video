@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script type="module" src="./js/webrtc-streamer-element.js"></script>
+	<style>
+		h2 {
+			margin: 0 auto;
+			text-align: center; 
+		}
+	</style>
+</head>
+<body>
+	<h2 id="message"></h2>
+	<webrtc-streamer id="stream" options="rtptransport=tcp&timeout=60&width=0&height=0&bitrate=0&rotation=0" style="display:none"></webrtc-streamer>
+	<p id="hint">默认从url连接上获取 video || audio 参数进行播放，本示例如果没有会选择本地 RTSP 推流</p>
+	<p style="color: red">【注意】：WebRTC 播放 RTSP 流需要前置启动 webrtc-streamer 客户端，否则推流无法播放</p>
+	<script>     
+		let messageElement = document.getElementById("message"); 
+        customElements.whenDefined('webrtc-streamer').then(() => {
+            let streamElement = document.getElementById("stream");
+
+			var params = new URLSearchParams(location.search);
+			if (params.has("options")) {
+				streamElement.setAttribute('options', params.get("options"));
+			}
+			let url = {
+				video:params.get("video") || 'rtsp://localhost:554/test',
+				//audio:params.get("audio")
+			};
+			streamElement.setAttribute('url', JSON.stringify(url));
+			streamElement.style.display = "block"
+		}).catch( (e) => {
+			messageElement.innerText = "webrtc-streamer webcomponent fails to initialize error:" + e
+		})
+	</script>
+</body>
+</html>
+
