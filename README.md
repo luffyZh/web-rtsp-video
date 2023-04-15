@@ -26,4 +26,4 @@ cd webrtc-rtsp
 http-server
 ```
 
-> 详细使用说明，查看文章：
+> 详细使用说明，查看文章：https://juejin.cn/post/7221858081485963324
